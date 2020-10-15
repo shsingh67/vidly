@@ -39,10 +39,6 @@ class Form extends Component {
     this.doSumbit();
   };
 
-  doSumbit = () => {
-    console.log("Submitted");
-  };
-
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
