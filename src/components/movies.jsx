@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
@@ -70,6 +71,7 @@ class Movies extends Component {
   render() {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, genres, sortColumn } = this.state;
+    const { history } = this.props;
 
     if (count === 0) {
       return <p>There are no movies in the database.</p>;
@@ -87,6 +89,14 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
+          <Link
+            to="/movies/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            New Movie
+          </Link>
+
           <p>Showing {totalCount} movies in the database.</p>
           <MoviesTable
             movies={movies}
